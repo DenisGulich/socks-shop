@@ -10,40 +10,61 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "json-server": "node ./api/start",
+    "json-server:watch": "nodemon --watch ./api ./api/start",
+    "test:unit": "jest",
+    "test": "yarn test:unit --coverage"
   },
   "lint-staged": {
-    "*.{js,vue}": "yarn lint",
-    "*.{css,vue}": "stylelint"
+    "*.{js,vue}": "eslint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
-    "bootstrap-vue": "^2.0.0",
-    "bootstrap": "^4.1.3",
+    "@nuxtjs/auth": "^4.8.5",
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/svg-sprite": "^0.4.10",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0",
+    "intersection-observer": "^0.7.0",
+    "lazysizes": "^5.2.0",
+    "nodemon": "^2.0.2",
+    "nuxt": "^2.0.0",
+    "objectFitPolyfill": "^2.3.0",
+    "vue-i18n": "^8.15.5",
+    "vue-scrollto": "^2.17.1",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1",
-    "husky": "^4.0.0",
-    "lint-staged": "^10.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
-    "stylelint": "^10.1.0",
+    "@types/jest": "^25.1.4",
     "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.0.0",
     "jest": "^24.1.0",
+    "json-server": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.0.0",
+    "lodash.clonedeep": "^4.5.0",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^10.1.0",
+    "stylelint-config-recess-order": "^2.0.3",
+    "stylelint-config-standard": "^20.0.0",
     "vue-jest": "^4.0.0-0"
   }
 }
